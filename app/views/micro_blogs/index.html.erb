@@ -1,5 +1,4 @@
-<% @micro_blogs.each do |micro_blog| %>
-  <p>
-    <%= micro_blog.blurb %>
-  </p>
-<% end %>
+<h1><%= @user.username %></h1>
+<h4><%= @user.bio %></h4>
+
+<%= render "micro_blogs", micro_blogs: @micro_blogs %>
