@@ -1,5 +1,3 @@
 <% micro_blogs.each do |micro_blog| %>
-  <p>
-    <%= micro_blog.blurb %>
-  </p>
+  <%= render "micro_blog", micro_blog: micro_blog %>
 <% end %>

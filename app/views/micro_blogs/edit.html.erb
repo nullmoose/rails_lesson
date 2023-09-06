@@ -1,0 +1,5 @@
+<%= form_with model: @micro_blog do |form| %>
+  <%= form.label :blurb, "Blurb:" %>
+  <%= form.text_area :blurb %>
+  <%= form.submit %>
+<% end %>

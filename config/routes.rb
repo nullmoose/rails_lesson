@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "micro_blogs#all_blurbs"
+  root "micro_blogs#index"
 
-  get "/users/:id/micro_blogs", to: "micro_blogs#index"
+  resources :micro_blogs
 end
