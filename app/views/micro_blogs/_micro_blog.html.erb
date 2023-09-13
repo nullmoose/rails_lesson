@@ -1,7 +1,7 @@
 <div>
-  <h2><%= micro_blog.user.username %></h2>
+  <p class="text-lg font-bold"><%= micro_blog.user.username %> says...</p>
   <p></p>
-  <p><%= micro_blog.blurb %></p>
+  <p class="text-xl italic"><%= micro_blog.blurb %></p>
   <p><%= micro_blog.updated_at %></p>
   <%= button_to "Delete MicroBlog", micro_blog_path(micro_blog), method: :delete %>
 </div>

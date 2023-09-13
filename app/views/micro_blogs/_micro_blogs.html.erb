@@ -1,3 +1,7 @@
-<% micro_blogs.each do |micro_blog| %>
-  <%= render "micro_blog", micro_blog: micro_blog %>
-<% end %>
+<div class="grid grid-cols-4 gap-4">
+  <% micro_blogs.each do |micro_blog| %>
+    <div class="col-span-1 border rounded-md border-slate-400 p-5">
+      <%= render "micro_blog", micro_blog: micro_blog %>
+    </div>
+  <% end %>
+</div>
