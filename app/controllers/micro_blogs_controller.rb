@@ -3,6 +3,7 @@ class MicroBlogsController < ApplicationController
   before_action :authorize_user, only: [:edit, :update]
 
   def index
+    puts "My Dumb Change"
     @micro_blogs = MicroBlog.all
   end
 
