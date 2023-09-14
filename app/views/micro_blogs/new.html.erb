@@ -1,7 +1,5 @@
 <%= form_with model: @micro_blog do |form| %>
   <%= form.label :blurb, "Blurb:" %>
   <%= form.text_area :blurb %>
-  <%= form.label :user_id, "User: " %>
-  <%= form.collection_select :user_id, User.all, :id, :username %>
   <%= form.submit %>
 <% end %>

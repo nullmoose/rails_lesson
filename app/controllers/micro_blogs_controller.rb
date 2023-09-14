@@ -1,5 +1,6 @@
 class MicroBlogsController < ApplicationController
   before_action :find_micro_blog, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user, only: [:edit, :update]
 
   def index
     @micro_blogs = MicroBlog.all
@@ -12,7 +13,7 @@ class MicroBlogsController < ApplicationController
   end
 
   def create
-    MicroBlog.create!(micro_blog_params)
+    MicroBlog.create!(micro_blog_params.merge(user_id: @current_user.id))
     redirect_to micro_blogs_path
   end
 
@@ -31,10 +32,17 @@ class MicroBlogsController < ApplicationController
   private
 
   def micro_blog_params
-    params.require(:micro_blog).permit(:blurb, :user_id)
+    params.require(:micro_blog).permit(:blurb)
   end
 
   def find_micro_blog
     @micro_blog = MicroBlog.find(params[:id])
+  end
+
+  def authorize_user
+    if @current_user.id != @micro_blog.user_id
+      flash[:alert] = "You can't edit that micro blog"
+      redirect_to micro_blogs_path
+    end
   end
 end
